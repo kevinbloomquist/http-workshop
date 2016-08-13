@@ -249,6 +249,10 @@ Now that we've got GETing down, it's up to you to try POSTing. Just like any RES
 
 We'll be walking around helping you if you get stuck. In the last few minutes we can see how many people got it!
 
+### Stretch
+
+If you have time, see if you can add the DELETE request as well.
+
 <!--10:10 5 minutes -->
 
 ## Conclusion
