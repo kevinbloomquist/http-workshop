@@ -4,33 +4,45 @@ Market: SF
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
+<!-- 9:00 5 minutes -->
+
+<!--Hook: So by now we've hammered in the concept of the request response cycle pretty hard.  Think for a moment about how you would summarize it to a new web developer.  Now turn to your partner and share your summary.  Who wants to share their summary?  [Once summary is established, move into lecture] -->
+
 # Angular $http
 
 ### Why is this important?
 *This workshop is important because:*
+
 As you have been learning, Angular has its own way of doing things. $http is how Angular handles web requests. It is to Angular what $.ajax, $.get, $.post etc. is to jQuery..  
 
 ### What are the objectives?
 *After this workshop, developers will be able to:*
 
-- Use $http to access an API resource, rather than use hardcoded data.
+- **Use** $http to access an API resource, rather than use hardcoded data.
 
 ### Where should we be now?
 *Before this workshop, developers should already be able to:*
 
-- Be able to start up a Node.js app
-- Be able to create an Angular app with controllers
-- Understand AJAX & RESTful routing
+- **Start up** a Node.js app
+- **Create** an Angular app with controllers
+- **Understand** AJAX & RESTful routing
+
+<!-- 9:05 5 minutes -->
 
 ## Intro
 
 We've only been working with hardcoded data so far. Today that changes; it's time to kick it up a notch.
 
+[](http://piqueyeater.files.wordpress.com/2013/12/emeril-bam-gif.gif)
+
 We're going to learn a little about two different functionalities in Angular that will allow us to start communicating with real data, accessed through an API. You'll need to dust off your knowledge of RESTful routes & AJAX, but hopefully that's a good thing.
 
 We are going to be using an external JSON API. Next week we will go over making strictly JSON API's in both Rails and Express, but today we will use a  little Node API we built for you.
 
-Now, real quick – we might want a little seed data. Take a minute and make some POST requests in CURL or whatever you like to add some presidents to our database. If you need some examples:
+Now, real quick – we might want a little seed data. Take a minute and make some POST requests in CURL, Postman, etc. to add some presidents to our database. 
+
+<details>
+<summary>If you need some examples:</summary>
 
 ```json
 [
@@ -40,12 +52,19 @@ Now, real quick – we might want a little seed data. Take a minute and make som
   {"name": "James Madison", "start": 1809, "end": 1817 }
 ]
 ```
-curl example:
+</details>
+
+<details>
+<summary>curl example:</summary>
 ```bash
 curl -H "Content-Type: application/json" -X POST -d '{"name": "George Washington", "start": 1789, "end": 1797 }' http://localhost:3000/presidents
 {"president":{"__v":0,"name":"George Washington","start":1789,"end":1797,"_id":"56f18463508799dc44f2fbee"}}
 ```
+</details>
+
 Once you have some, do a quick `GET` request to `http://localhost:3000/presidents` and make sure you've got some JSON.
+
+<!-- 9:10 < 5 minutes -->
 
 ## Demo of Starter Code
 
@@ -55,6 +74,9 @@ It's our job to connect this little API we have, and our Angular application.
 
 <img width="752"  src="https://cloud.githubusercontent.com/assets/25366/9017871/7cf4a79e-378e-11e5-85d8-d018f0a7ab21.png">
 
+<!--Do this at half-mast then turn over to devs-->
+
+<!-- 9:10 25 minutes -->
 
 ## Hitting an API with $http
 
@@ -141,6 +163,10 @@ function PresidentsController($http){
 
 We call `$http`, then our favorite HTTP verb, `.get`. There's one for `.post`, too. It's asynchronous, so we'll use `.then` to make sure when it's _done_ it'll do what we want. And what we want is just to overwrite our `.all` array with the response we get back.
 
+> **Note:** The return value we get from $http.get() is called a *promise*.  A *promise* is an asynchronous operation that hasn't completed yet, but is expected to in the future.  Does that sound like something else in Javascript? 
+
+<!-- Do this for whole class to see-->
+
 Feel free to `console.log(response)` and see everything that comes back. `.data` is just the data, `.presidents` is the key inside our JSON holding an array of presidents.
 
 That's all we're doing in that function. Afterwords, we literally just run the function, which runs when we first load up the app. Easy.
@@ -206,7 +232,7 @@ function PresidentsController($http){
 
 Now we can trust we're talking to the right scope.
 
-Try refreshing your browser, let's see if it worked!
+Bring this code into your controller, try refreshing your browser, and let's see if it worked!
 
 <img width="752"  src="https://cloud.githubusercontent.com/assets/25366/9017871/7cf4a79e-378e-11e5-85d8-d018f0a7ab21.png">
 
@@ -215,17 +241,21 @@ Try refreshing your browser, let's see if it worked!
   <p>They both do the same thing: Handle  XMLHttpRequests to make http calls to the web from the client side.</p>
 </details>
 
+<!--9:35 35 minutes -->
+
 ## Independent Practice
 
 Now that we've got GETing down, it's up to you to try POSTing. Just like any RESTful API, you can add a new president by POSTing to the correct URL. You'll need to modify your controller action to send a new president from the form to our API, and probably look up the Angular documentation to figure out how to do it.
 
 We'll be walking around helping you if you get stuck. In the last few minutes we can see how many people got it!
 
+<!--10:10 5 minutes -->
+
 ## Conclusion
 - How do you inject dependencies into an Angular controller?
 - How do you use $http to do a GET request?
 - Why did we start using `self` instead of `this`?
-- How do you do a POST request?
+- How do you do a POST request with Angular?
 
 
 ## Additional Resources
