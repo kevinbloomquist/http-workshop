@@ -241,7 +241,7 @@ Bring this code into your controller, try refreshing your browser, and let's see
   <p>They both do the same thing: Handle  XMLHttpRequests to make http calls to the web from the client side.</p>
 </details>
 
-<!--9:35 35 minutes -->
+<!--9:45 25 minutes -->
 
 ## Independent Practice
 
