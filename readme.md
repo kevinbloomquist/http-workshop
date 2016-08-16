@@ -76,7 +76,7 @@ It's our job to connect this little API we have, and our Angular application.
 
 <!--Do this at half-mast then turn over to devs-->
 
-<!-- 9:10 25 minutes -->
+<!-- 9:10 35 minutes -->
 
 ## Hitting an API with $http
 
