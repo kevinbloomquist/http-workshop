@@ -33,7 +33,7 @@ As you have been learning, Angular has its own way of doing things. $http is how
 
 We've only been working with hardcoded data so far. Today that changes; it's time to kick it up a notch.
 
-[](http://piqueyeater.files.wordpress.com/2013/12/emeril-bam-gif.gif)
+![](http://piqueyeater.files.wordpress.com/2013/12/emeril-bam-gif.gif)
 
 We're going to learn a little about two different functionalities in Angular that will allow us to start communicating with real data, accessed through an API. You'll need to dust off your knowledge of RESTful routes & AJAX, but hopefully that's a good thing.
 
