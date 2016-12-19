@@ -1,18 +1,47 @@
 angular.module('ThePresidentsApp', [])
   .controller('PresidentsController', PresidentsController);
 
-function PresidentsController(){
-  this.all = [
-    {name: 'George Washington', start: 1789, end: 1797 },
-    {name: 'John Adams', start: 1797, end: 1801 },
-    {name: 'Thomas Jefferson', start: 1801, end: 1809 },
-    {name: 'James Madison', start: 1809, end: 1817 }
-  ]
-  this.addPresident = addPresident;
-  this.newPresident = {};
+
+PresidentsController.$inject = ['$http'];
+
+function PresidentsController($http){
+  var self = this;
+  self.all = [];
+  self.addPresident = addPresident;
+  self.newPresident = {};
+  self.getPresidents = getPresidents;
+  self.deletePresident = deletePresident;
+  
+
+  function getPresidents(){
+    $http
+    .get('http://localhost:3000/presidents')
+    .then(function(response){
+      self.all = response.data.presidents;
+    });
+  }
+  // this.addPresident = addPresident;
+  // this.newPresident = {};
+  getPresidents();
 
   function addPresident(){
-    this.all.push(this.newPresident);
-    this.newPresident = {};
-  }
+    $http
+      .post('http://localhost:3000/presidents',self.newPresident)
+      .then(function(response){
+        console.log(response.data);
+       getPresidents();
+});
+      self.newPresident = {};
+}
+    function deletePresident(president) {
+      $http
+      .delete("http://locathost:3000/prsidents/" + president_id)
+      .then(function(response) {
+        var index = self.all.indexOf(president);
+        self.all.splice(index,1);
+      });
+
+    
+    }
+  
 }
