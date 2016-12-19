@@ -20,8 +20,7 @@ function PresidentsController($http){
       self.all = response.data.presidents;
     });
   }
-  // this.addPresident = addPresident;
-  // this.newPresident = {};
+ 
   getPresidents();
 
   function addPresident(){
